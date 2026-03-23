@@ -1,0 +1,100 @@
+/* ============================================================
+   src/styles/globals.css
+   Global styles, CSS custom properties, and base resets.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Font variables ────────────────────────────────────────── */
+:root {
+  --font-display: 'Syne', sans-serif;          /* headings — geometric, bold */
+  --font-body:    'DM Sans', sans-serif;        /* body — clean, readable     */
+  --font-mono:    'Space Mono', monospace;      /* code, accents, labels      */
+
+  /* Scroll behaviour */
+  scroll-behavior: smooth;
+}
+
+/* ── Base reset ────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #0a0a0f;
+  color: #f0f4ff;
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── Selection color ───────────────────────────────────────── */
+::selection {
+  background-color: rgba(0, 229, 255, 0.2);
+  color: #00e5ff;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,229,255,0.6); }
+
+/* ── Focus ring ────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid rgba(0,229,255,0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Utility classes ───────────────────────────────────────── */
+@layer utilities {
+  /* Grid dot background */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, #00e5ff 0%, #3b82f6 50%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glowing border */
+  .border-glow {
+    border: 1px solid rgba(0,229,255,0.2);
+    box-shadow: 0 0 20px rgba(0,229,255,0.05), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  /* Card surface */
+  .card-surface {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(12px);
+  }
+
+  /* Mono label style */
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #00e5ff;
+  }
+}
