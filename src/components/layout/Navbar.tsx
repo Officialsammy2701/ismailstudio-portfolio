@@ -11,6 +11,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { personal, resumeUrl } from "@/data/portfolio";
 import Image from "next/image";
+import Link from "next/link";
 
 // Nav links — update hrefs to match your section IDs / pages
 const navLinks = [
@@ -49,12 +50,12 @@ export default function Navbar() {
         {/* Logo — left */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/logo.png"
-            alt="Brand Logo"
+            src="/images/logo.png"
+            alt="{`${personal.brandName} logo`}"
             width={120}
             height={40}
-            className="object-contain"
             priority
+            className="object-contain"
           />
         </Link>
 
