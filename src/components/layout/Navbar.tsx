@@ -46,7 +46,7 @@ export default function Navbar() {
         }
       `}
     >
-      <nav className="px-10 lg:px-14 w-full h-14 sm:h-16 flex items-center justify-between gap-4">
+      <nav className="px-6 sm:px-8 lg:px-14 w-full h-16 sm:h-20 flex items-center justify-between gap-4">
         {/* Logo — left */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
