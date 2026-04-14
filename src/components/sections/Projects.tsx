@@ -7,6 +7,7 @@
 import { useRouter } from "next/navigation";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FiArrowRight, FiExternalLink, FiGithub } from "react-icons/fi";
 import DoubleSlash from "@/components/ui/DoubleSlash";
 import { projects } from "@/data/portfolio";
@@ -74,14 +75,24 @@ export default function Projects() {
                     ${isEven ? "lg:col-start-6 lg:row-start-1" : "lg:col-start-1 lg:row-start-1"}
                   `}
                 >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    priority={idx === 0}
+                  />
+
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${gradients[idx]}`}
                   />
+
                   <button
                     onClick={() => router.push(`/projects/${project.id}`)}
                     className="absolute inset-0 bg-accent-cyan/0 hover:bg-accent-cyan/5 transition-colors duration-300 cursor-pointer"
                     aria-label={`View ${project.title}`}
                   />
+
                   <span className="absolute bottom-4 right-6 font-display font-extrabold text-8xl text-white/5 select-none pointer-events-none">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
