@@ -90,7 +90,7 @@ export default function Projects() {
                     aria-label={`View ${project.title}`}
                   />
 
-                  <span className="absolute bottom-4 right-6 font-display font-extrabold text-8xl text-white/8 select-none pointer-events-none">
+                  <span className="absolute bottom-4 right-6 font-display font-extrabold text-7xl sm:text-8xl text-white/5 select-none pointer-events-none">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -98,11 +98,11 @@ export default function Projects() {
                 {/* Content side — pulled over image with negative margin */}
                 <div
                   className={`
-                    relative z-10 lg:col-span-5 flex flex-col gap-3
+                    relative z-10 lg:col-span-5 flex flex-col gap-4
                     ${
                       isEven
-                        ? "lg:col-start-1 lg:row-start-1 text-left items-start lg:-mr-20"
-                        : "lg:col-start-8 lg:row-start-1 text-right items-end lg:-ml-20"
+                        ? "lg:col-start-1 lg:row-start-1 text-left items-start lg:-mr-12"
+                        : "lg:col-start-8 lg:row-start-1 text-right items-end lg:-ml-12"
                     }
                   `}
                 >
@@ -118,7 +118,7 @@ export default function Projects() {
                   </h3>
 
                   {/* Description card — sits on top of image */}
-                  <div className="card-surface border-glow rounded-lg p-5 w-full bg-bg-secondary/75 backdrop-blur-md">
+                  <div className="card-surface border-glow rounded-xl p-5 w-full max-w-xl bg-bg-secondary/75 backdrop-blur-md">
                     <p className="font-body text-text-secondary text-sm leading-relaxed">
                       {project.description}
                     </p>
