@@ -60,18 +60,18 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center bg-bg-primary overflow-hidden px-16"
+      className="relative min-h-screen flex flex-col items-center justify-center bg-bg-primary overflow-hidden px-4 sm:px-6 lg:px-16"
     >
       {/* Signal field + grid */}
       <SignalField />
       <div className="absolute inset-0 bg-grid opacity-25" />
 
       {/* ── All content centered in one column ── */}
-      <div className="relative z-10 flex flex-col items-start text-left gap-3 sm:gap-5 px-10 lg:px-16 w-full pt-16 sm:pt-0 pb-16 sm:pb-0">
+      <div className="relative z-10 flex flex-col items-start text-left gap-4 sm:gap-5 px-2 sm:px-6 lg:px-16 w-full pt-20 sm:pt-0 pb-20 sm:pb-0">
         {/* Availability badge */}
         <motion.div
           {...fadeUp(0.3)}
-          className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-accent-cyan/20 bg-accent-cyan/5 font-mono text-[9px] sm:text-xs text-accent-cyan tracking-wide sm:tracking-widest uppercase whitespace-nowrap"
+          className="inline-flex flex-wrap items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-full border border-accent-cyan/20 bg-accent-cyan/5 font-mono text-[9px] sm:text-xs text-accent-cyan tracking-wide sm:tracking-widest uppercase max-w-full"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse-slow" />
           Open to Collabs · Internships · Creative Projects
@@ -80,7 +80,7 @@ export default function Hero() {
         {/* Brand byline — subtle, not dominant */}
         <motion.p
           {...fadeUp(0.4)}
-          className="font-mono text-text-muted text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.25em] uppercase whitespace-nowrap"
+          className="font-mono text-text-muted text-[10px] sm:text-xs tracking-[0.12em] sm:tracking-[0.25em] uppercase"
         >
           {personal.brandName} &nbsp;·&nbsp; by {personal.fullName}
         </motion.p>
@@ -88,7 +88,7 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.5)}
-          className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight text-text-primary"
+          className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-5xl leading-[0.95] sm:leading-tight tracking-tight text-text-primary"
         >
           Building experiences
           <br />
@@ -120,17 +120,17 @@ export default function Hero() {
         {/* CTAs */}
         <motion.div
           {...fadeUp(0.8)}
-          className="flex items-center gap-3 sm:gap-4 flex-wrap justify-start"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto"
         >
           <Link
             href="/#projects"
-            className="px-4 sm:px-6 py-2.5 sm:py-3 rounded-md font-mono text-xs sm:text-sm font-bold bg-accent-cyan text-bg-primary hover:shadow-glow-button hover:scale-105 transition-all duration-300"
+            className="w-full sm:w-auto text-center px-4 sm:px-6 py-3 rounded-md font-mono text-xs sm:text-sm font-bold bg-accent-cyan text-bg-primary hover:shadow-glow-button hover:scale-105 transition-all duration-300"
           >
             Explore Work
           </Link>
           <Link
             href="/#contact"
-            className="px-4 sm:px-6 py-2.5 sm:py-3 rounded-md font-mono text-xs sm:text-sm border border-border-accent text-accent-cyan hover:bg-accent-cyan/10 hover:shadow-glow-button transition-all duration-300"
+            className="w-full sm:w-auto text-center px-4 sm:px-6 py-3 rounded-md font-mono text-xs sm:text-sm border border-border-accent text-accent-cyan hover:bg-accent-cyan/10 hover:shadow-glow-button transition-all duration-300"
           >
             Contact Me
           </Link>

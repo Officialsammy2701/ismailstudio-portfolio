@@ -36,13 +36,13 @@ export default function Skills() {
           <span className="mono-label flex items-center gap-2 justify-center mb-4">
             <DoubleSlash /> tools of the trade
           </span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-text-primary">
+          <h2 className="font-display font-bold text-3xl sm:text-5xl text-text-primary">
             Skills &amp; <span className="text-gradient">Technologies</span>
           </h2>
         </motion.div>
 
         {/* Skill category grid */}
-        <div className="grid grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
           {skills.map((group, groupIdx) => (
             <motion.div
               key={group.category}
@@ -54,7 +54,7 @@ export default function Skills() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               className={`
-                card-surface border-glow rounded-xl p-6
+                card-surface border-glow rounded-xl p-4 sm:p-6
                 flex flex-col gap-4
                 transition-all duration-700
                 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
