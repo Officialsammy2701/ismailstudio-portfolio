@@ -66,34 +66,31 @@ export default function Projects() {
                   delay: idx * 0.15,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="relative grid grid-cols-1 lg:grid-cols-12 items-center"
+                className="group relative grid grid-cols-1 lg:grid-cols-12 items-center"
               >
                 {/* Image side */}
                 <div
-                  className={`
-                    relative lg:col-span-7 h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden
-                    ${isEven ? "lg:col-start-6 lg:row-start-1" : "lg:col-start-1 lg:row-start-1"}
-                  `}
+                  className={`relative lg:col-span-7 h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden border border-border-subtle shadow-2xl${isEven ? "lg:col-start-6 lg:row-start-1" : "lg:col-start-1 lg:row-start-1"}`}
                 >
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover"
                     priority={idx === 0}
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                   />
 
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${gradients[idx]}`}
-                  />
+                  <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl" />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/35 via-transparent to-transparent" />
 
                   <button
                     onClick={() => router.push(`/projects/${project.id}`)}
-                    className="absolute inset-0 bg-accent-cyan/0 hover:bg-accent-cyan/5 transition-colors duration-300 cursor-pointer"
+                    className="absolute inset-0 cursor-pointer"
                     aria-label={`View ${project.title}`}
                   />
 
-                  <span className="absolute bottom-4 right-6 font-display font-extrabold text-8xl text-white/5 select-none pointer-events-none">
+                  <span className="absolute bottom-4 right-6 font-display font-extrabold text-8xl text-white/8 select-none pointer-events-none">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -121,7 +118,7 @@ export default function Projects() {
                   </h3>
 
                   {/* Description card — sits on top of image */}
-                  <div className="card-surface border-glow rounded-lg p-5 w-full">
+                  <div className="card-surface border-glow rounded-lg p-5 w-full bg-bg-secondary/75 backdrop-blur-md">
                     <p className="font-body text-text-secondary text-sm leading-relaxed">
                       {project.description}
                     </p>
