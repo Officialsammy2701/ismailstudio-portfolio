@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { personal, resumeUrl } from "@/data/portfolio";
+import { Image } from "next/image";
 
 // Nav links — update hrefs to match your section IDs / pages
 const navLinks = [
@@ -46,13 +47,15 @@ export default function Navbar() {
     >
       <nav className="px-10 lg:px-14 w-full h-14 sm:h-16 flex items-center justify-between gap-4">
         {/* Logo — left */}
-        <Link
-          href="/"
-          className="font-display font-bold text-sm sm:text-lg tracking-tight hover:text-accent-cyan transition-colors shrink-0 whitespace-nowrap"
-        >
-          <span className="text-accent-cyan font-mono">&lt;</span>
-          {personal.brandName}
-          <span className="text-accent-cyan font-mono">/&gt;</span>
+        <Link href="/" className="flex items-center shrink-0">
+          <Image
+            src="/logo.png"
+            alt="Brand Logo"
+            width={120}
+            height={40}
+            className="object-contain"
+            priority
+          />
         </Link>
 
         {/* Nav links + Resume — grouped right */}
