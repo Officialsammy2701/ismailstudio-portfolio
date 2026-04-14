@@ -70,7 +70,7 @@ export default function Projects() {
               >
                 {/* Image side */}
                 <div
-                  className={`relative lg:col-span-7 h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden border border-border-subtle shadow-2xl${isEven ? "lg:col-start-6 lg:row-start-1" : "lg:col-start-1 lg:row-start-1"}`}
+                  className={`relative lg:col-span-7 h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden border border-border-subtle shadow-2xl ${isEven ? "lg:col-start-6 lg:row-start-1" : "lg:col-start-1 lg:row-start-1"}`}
                 >
                   <Image
                     src={project.image}
@@ -82,7 +82,7 @@ export default function Projects() {
 
                   <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl" />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/35 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-accent-cyan/30 transition-opacity duration-500 group-hover:opacity-0" />
 
                   <button
                     onClick={() => router.push(`/projects/${project.id}`)}
