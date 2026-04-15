@@ -19,6 +19,7 @@ export default function ProjectViewer() {
   const router = useRouter();
   const params = useParams();
   const slug = params?.slug as string;
+
   const currentIndex = projects.findIndex((p) => p.id === slug);
   const project = projects[currentIndex];
   const prevProject = projects[currentIndex - 1] ?? null;
@@ -28,11 +29,14 @@ export default function ProjectViewer() {
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") router.push("/#projects");
-      if (e.key === "ArrowLeft" && prevProject)
+      if (e.key === "ArrowLeft" && prevProject) {
         router.push(`/projects/${prevProject.id}`);
-      if (e.key === "ArrowRight" && nextProject)
+      }
+      if (e.key === "ArrowRight" && nextProject) {
         router.push(`/projects/${nextProject.id}`);
+      }
     };
+
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [router, prevProject, nextProject]);
@@ -43,167 +47,101 @@ export default function ProjectViewer() {
   }
 
   return (
-    <div className="min-h-screen bg-bg-primary z-50 flex flex-col">
-      {/* ── Main content area ──────────────────────────────── */}
-      <div className="flex-1 flex items-center justify-center relative overflow-hidden px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
-        {/* Background grid + glow */}
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div
-          className="
-          absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-          w-[700px] h-[400px] rounded-full
-          bg-accent-cyan/5 blur-[120px] pointer-events-none
-        "
-        />
+    <main className="min-h-screen bg-bg-primary relative overflow-hidden">
+      {/* subtle background */}
+      <div className="absolute inset-0 bg-grid opacity-20" />
+      <div className="absolute inset-0 bg-black/20" />
 
-        {/* Project number — huge watermark */}
-        <span
-          className="
-          absolute font-display font-extrabold
-          text-[7rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem]
-          leading-none select-none pointer-events-none
-          text-white/[0.03]
-        "
-        >
-          {String(currentIndex + 1).padStart(2, "0")}
-        </span>
+      {/* centered project visual */}
+      <div className="absolute inset-0 flex items-center justify-center px-6 pt-10 pb-32 sm:px-10 sm:pb-28">
+        <div className="relative flex items-center justify-center w-full h-full">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="
+              max-w-[88vw] sm:max-w-[82vw] lg:max-w-[70vw]
+              max-h-[52vh] sm:max-h-[62vh] lg:max-h-[68vh]
+              w-auto h-auto object-contain
+              rounded-lg sm:rounded-xl
+              border border-white/10
+              shadow-[0_0_60px_rgba(255,255,255,0.06)]
+            "
+          />
+        </div>
+      </div>
 
-        {/* Content card */}
-        <div className="relative z-10 flex flex-col items-center gap-6 sm:gap-8 px-2 sm:px-6 text-center max-w-xl sm:max-w-2xl lg:max-w-3xl">
-          {/* Tags */}
-          <div className="flex items-center gap-2 flex-wrap justify-center max-w-2xl">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="
-                  px-2 py-0.5 rounded text-xs font-mono
-                  bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20
-                "
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Title */}
-          <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-gradient leading-[0.95] sm:leading-tight">
+      {/* bottom-left project info */}
+      <div className="absolute left-0 right-0 bottom-20 sm:bottom-24 z-10 px-5 sm:px-6 pointer-events-none">
+        <div className="max-w-[18rem] sm:max-w-md">
+          <h1 className="font-display font-bold text-lg sm:text-xl lg:text-2xl text-text-primary leading-tight">
             {project.title}
           </h1>
 
-          {/* Description */}
-          <p className="font-body text-text-secondary text-base sm:text-lg leading-relaxed max-w-2xl">
+          <p className="mt-2 font-body text-sm sm:text-base text-text-secondary leading-relaxed">
             {project.longDesc || project.description}
           </p>
+        </div>
+      </div>
 
-          {/* Action buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center w-full sm:w-auto">
-            {project.live && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  w-full sm:w-auto justify-center flex items-center gap-2
-                  px-6 py-3 rounded-md font-mono text-sm font-bold
-                  bg-accent-cyan text-bg-primary
-                  hover:shadow-glow-button hover:scale-105
-                  transition-all duration-300
-                "
+      {/* bottom meta bar */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-border-subtle bg-bg-primary/75 backdrop-blur-sm">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between px-4 sm:px-6 py-4">
+          {/* left */}
+          <div className="flex flex-col gap-1">
+            <p className="font-mono text-xs sm:text-sm text-text-primary">
+              <span className="font-bold">
+                Exploration {String(currentIndex + 1).padStart(2, "0")}:
+              </span>{" "}
+              {project.title}
+            </p>
+            <p className="font-mono text-[11px] sm:text-xs text-text-muted">
+              {project.year}
+            </p>
+          </div>
+
+          {/* right */}
+          <div className="flex flex-wrap items-center gap-1.5 font-mono text-[11px] sm:text-sm">
+            <Link
+              href="/#projects"
+              className="text-text-muted hover:text-accent-cyan transition-colors underline underline-offset-2"
+            >
+              ← Main
+            </Link>
+
+            <DoubleSlash />
+
+            {prevProject ? (
+              <Link
+                href={`/projects/${prevProject.id}`}
+                className="text-text-muted hover:text-accent-cyan transition-colors"
               >
-                Launch Project <FiExternalLink size={14} />
-              </a>
+                {String(currentIndex).padStart(2, "0")}
+              </Link>
+            ) : (
+              <span className="text-text-muted/25">--</span>
             )}
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  w-full sm:w-auto justify-center flex items-center gap-2
-                  px-6 py-3 rounded-md font-mono text-sm
-                  border border-border-accent text-accent-cyan
-                  hover:bg-accent-cyan/10 hover:shadow-glow-button
-                  transition-all duration-300
-                "
+
+            <DoubleSlash />
+
+            <span className="text-accent-cyan font-bold">
+              {String(currentIndex + 1).padStart(2, "0")}
+            </span>
+
+            <DoubleSlash />
+
+            {nextProject ? (
+              <Link
+                href={`/projects/${nextProject.id}`}
+                className="text-text-muted hover:text-accent-cyan transition-colors"
               >
-                View Code <FiGithub size={14} />
-              </a>
+                {String(currentIndex + 2).padStart(2, "0")} →
+              </Link>
+            ) : (
+              <span className="text-text-muted/25">--</span>
             )}
           </div>
         </div>
       </div>
-
-      {/* ── Meta bar — bottom, exactly like mattgross.io ───── */}
-      <div
-        className="
-          relative z-10 flex flex-col sm:flex-row sm:items-end justify-between
-          gap-4 sm:gap-6
-          px-4 sm:px-6 py-4 sm:py-5
-          border-t border-border-subtle bg-bg-primary/80 backdrop-blur-sm
-        "
-      >
-        {/* Left — project title + stack */}
-        <div className="flex flex-col gap-1">
-          <p className="font-mono text-sm text-text-primary">
-            <strong className="text-accent-cyan">
-              Project {String(currentIndex + 1).padStart(2, "0")}
-            </strong>
-            : {project.title}
-          </p>
-          <p className="font-mono text-xs text-text-muted">
-            {project.tags.join(", ")}
-          </p>
-        </div>
-
-        {/* Right — navigation exactly like Matt Gross */}
-        <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs sm:text-sm">
-          {/* ← Main */}
-          <Link
-            href="/#projects"
-            className="text-text-muted hover:text-accent-cyan transition-colors underline underline-offset-2"
-          >
-            ← Main
-          </Link>
-
-          {/* // */}
-          <DoubleSlash />
-
-          {/* ← prev number */}
-          {prevProject ? (
-            <Link
-              href={`/projects/${prevProject.id}`}
-              className="text-text-muted hover:text-accent-cyan transition-colors"
-            >
-              ← {String(currentIndex).padStart(2, "0")}
-            </Link>
-          ) : (
-            <span className="text-text-muted/20">←</span>
-          )}
-
-          {/* // */}
-          <DoubleSlash />
-
-          {/* current */}
-          <span className="text-accent-cyan font-bold mx-1">
-            {String(currentIndex + 1).padStart(2, "0")}
-          </span>
-
-          {/* // */}
-          <DoubleSlash />
-
-          {/* next number → */}
-          {nextProject ? (
-            <Link
-              href={`/projects/${nextProject.id}`}
-              className="text-text-muted hover:text-accent-cyan transition-colors"
-            >
-              {String(currentIndex + 2).padStart(2, "0")} →
-            </Link>
-          ) : (
-            <span className="text-text-muted/20">→</span>
-          )}
-        </div>
-      </div>
-    </div>
+    </main>
   );
 }
