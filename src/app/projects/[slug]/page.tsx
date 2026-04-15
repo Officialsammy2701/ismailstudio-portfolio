@@ -12,8 +12,13 @@ import { useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import DoubleSlash from "@/components/ui/DoubleSlash";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { projects } from "@/data/portfolio";
+
+function getProjectDate(project: { year?: string; month?: string }) {
+  if (project.month && project.year) return `${project.month} ${project.year}`;
+  if (project.year) return project.year;
+  return "";
+}
 
 export default function ProjectViewer() {
   const router = useRouter();
@@ -70,75 +75,69 @@ export default function ProjectViewer() {
         </div>
       </div>
 
-      {/* bottom-left project info */}
-      <div className="absolute left-0 right-0 bottom-20 sm:bottom-24 z-10 px-5 sm:px-6 pointer-events-none">
-        <div className="max-w-[16rem] sm:max-w-[20rem] lg:max-w-[24rem]">
-          <h1 className="font-display font-bold text-xl sm:text-2xl text-text-primary leading-tight">
-            {project.title}
-          </h1>
-
-          <p className="mt-3 font-body text-sm sm:text-[15px] text-text-secondary/85 leading-relaxed">
-            {project.longDesc || project.description}
-          </p>
-        </div>
-      </div>
-
       {/* bottom meta bar */}
       <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-border-subtle bg-bg-primary/75 backdrop-blur-sm">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between px-4 sm:px-6 py-4">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between px-4 sm:px-6 py-5 sm:py-6 min-h-[108px] sm:min-h-[120px]">
           {/* left */}
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1.5">
             <p className="font-mono text-xs sm:text-sm text-text-primary">
               <span className="font-bold">
                 Exploration {String(currentIndex + 1).padStart(2, "0")}:
               </span>{" "}
               {project.title}
             </p>
-            <p className="font-mono text-[12px] sm:text-xs text-text-muted">
-              {project.year}
+
+            <p className="font-mono text-[11px] sm:text-xs text-text-muted">
+              {project.tags.join(", ")}
             </p>
           </div>
 
           {/* right */}
-          <div className="flex flex-wrap items-center gap-1.5 font-mono text-[11px] sm:text-sm">
-            <Link
-              href="/#projects"
-              className="text-text-muted hover:text-accent-cyan transition-colors underline underline-offset-2"
-            >
-              ← Main
-            </Link>
+          <div className="flex flex-col items-start sm:items-end gap-2">
+            <p className="font-mono text-[11px] sm:text-xs text-text-muted">
+              {getProjectDate(project)}
+            </p>
 
-            <DoubleSlash />
-
-            {prevProject ? (
+            <div className="flex flex-wrap items-center gap-1.5 font-mono text-[11px] sm:text-sm">
               <Link
-                href={`/projects/${prevProject.id}`}
-                className="text-text-muted hover:text-accent-cyan transition-colors"
+                href="/#projects"
+                className="text-text-muted hover:text-accent-cyan transition-colors underline underline-offset-2"
               >
-                {String(currentIndex).padStart(2, "0")}
+                ← Main
               </Link>
-            ) : (
-              <span className="text-text-muted/25">--</span>
-            )}
 
-            <DoubleSlash />
+              <DoubleSlash />
 
-            <span className="text-accent-cyan font-bold">
-              {String(currentIndex + 1).padStart(2, "0")}
-            </span>
+              {prevProject ? (
+                <Link
+                  href={`/projects/${prevProject.id}`}
+                  className="text-text-muted hover:text-accent-cyan transition-colors"
+                >
+                  {String(currentIndex).padStart(2, "0")}
+                </Link>
+              ) : (
+                <span className="text-text-muted/25">--</span>
+              )}
 
-            <DoubleSlash />
+              <DoubleSlash />
 
-            {nextProject ? (
-              <Link
-                href={`/projects/${nextProject.id}`}
-                className="text-text-muted hover:text-accent-cyan transition-colors"
-              >
-                {String(currentIndex + 2).padStart(2, "0")} →
-              </Link>
-            ) : (
-              <span className="text-text-muted/25">--</span>
-            )}
+              <span className="text-accent-cyan font-bold">
+                {String(currentIndex + 1).padStart(2, "0")}
+              </span>
+
+              <DoubleSlash />
+
+              {nextProject ? (
+                <Link
+                  href={`/projects/${nextProject.id}`}
+                  className="text-text-muted hover:text-accent-cyan transition-colors"
+                >
+                  {String(currentIndex + 2).padStart(2, "0")} →
+                </Link>
+              ) : (
+                <span className="text-text-muted/25">--</span>
+              )}
+            </div>
           </div>
         </div>
       </div>

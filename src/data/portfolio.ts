@@ -90,6 +90,7 @@ export const projects = [
   {
     id: "powerpause",
     year: "2026",
+    month: "March",
     title: "PowerPause",
     description:
       "A full-stack energy monitor that simulates ESP32 power readings, visualizes live usage, and projects your monthly electricity bill.",
@@ -104,6 +105,7 @@ export const projects = [
   {
     id: "bibleflash",
     year: "2026",
+    month: "February",
     title: "BibleFlash",
     description:
       "A PWA delivering daily Bible verses, motivational quotes, and affirmations as beautiful swipeable flashcards — with push notifications and offline support.",
@@ -118,6 +120,7 @@ export const projects = [
   {
     id: "landscapes-in-motion",
     year: "2026",
+    month: "January",
     title: "Landscapes in Motion",
     description:
       "Immersive landscape photography brought to life through 3D card depth effects and fluid motion interactions.",
@@ -132,6 +135,7 @@ export const projects = [
   {
     id: "ecommerce",
     year: "2023",
+    month: "December",
     title: "E-Commerce Storefront",
     description:
       "A fully designed e-commerce website for a clothing brand — product listings, cart flow, and a clean shopping UI.",
@@ -146,6 +150,7 @@ export const projects = [
   {
     id: "url-shortener",
     year: "2022",
+    month: "November",
     title: "URL Shortener",
     description:
       "A clean URL shortening app integrating a third-party shortening API with a polished, responsive interface.",
@@ -160,6 +165,7 @@ export const projects = [
   {
     id: "ip-tracker",
     year: "2022",
+    month: "October",
     title: "IP Address Tracker",
     description:
       "Look up any IP address or domain and see its location pinned on an interactive map in real time.",
