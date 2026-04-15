@@ -1,5 +1,3 @@
-"use client";
-
 // ============================================================
 // src/app/layout.tsx
 // Root layout — wraps every page with shared metadata,
