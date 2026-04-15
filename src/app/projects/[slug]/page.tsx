@@ -11,6 +11,7 @@
 import { useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import DoubleSlash from "@/components/ui/DoubleSlash";
 import { projects } from "@/data/portfolio";
 
@@ -52,31 +53,52 @@ export default function ProjectViewer() {
   }
 
   return (
-    <main className="min-h-screen bg-bg-primary relative overflow-hidden">
+    <motion.main
+      key={project.id}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      className="min-h-screen bg-bg-primary relative overflow-hidden"
+    >
       {/* subtle background */}
+
       <div className="absolute inset-0 bg-grid opacity-20" />
       <div className="absolute inset-0 bg-black/20" />
 
       {/* centered project visual */}
-      <div className="absolute inset-0 flex items-center justify-center px-6 pt-4 pb-28 sm:px-10 sm:pt-6 sm:pb-24">
-        <div className="relative flex items-center justify-center w-full h-full">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="
-              max-w-[92vw] sm:max-w-[84vw] lg:max-w-[76vw]
-              max-h-[58vh] sm:max-h-[68vh] lg:max-h-[74vh]
-              w-auto h-auto object-contain
-              rounded-lg sm:rounded-xl
-              border border-white/10
-              shadow-[0_0_80px_rgba(255,255,255,0.04)]
-            "
-          />
+      <motion.div
+        initial={{ opacity: 0, y: 24, scale: 0.985 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-0 flex items-center justify-center px-4 sm:px-8 lg:px-12 pt-4 pb-32 sm:pt-6 sm:pb-32"
+      >
+        <div className="relative w-[92vw] sm:w-[84vw] lg:w-[74vw] h-[52vh] sm:h-[62vh] lg:h-[70vh] flex items-center justify-center">
+          <div className="absolute inset-0 bg-accent-cyan/5 blur-[90px] rounded-full pointer-events-none" />
+
+          <div className="relative z-10 w-full h-full flex items-center justify-center">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="
+                max-w-full max-h-full
+                object-contain
+                rounded-xl
+                border border-white/10
+                shadow-[0_10px_50px_rgba(0,0,0,0.45),0_0_70px_rgba(255,255,255,0.03)]
+              "
+            />
+          </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* bottom meta bar */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-border-subtle bg-bg-primary/75 backdrop-blur-sm">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute bottom-0 left-0 right-0 z-20 border-t border-border-subtle bg-bg-primary/75 backdrop-blur-sm"
+      >
         <div className="flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 py-6 sm:py-7 min-h-[120px] sm:min-h-[132px]">
           {/* left */}
           <div className="flex flex-col items-center sm:items-start justify-center gap-2 text-center sm:text-left">
@@ -95,13 +117,13 @@ export default function ProjectViewer() {
           {/* right */}
           <div className="flex flex-col items-center sm:items-end justify-center gap-2 text-center sm:text-right">
             <p className="font-mono text-base sm:text-lg text-text-primary">
-                {getProjectDate(project)}
+              {getProjectDate(project)}
             </p>
 
             <div className="flex flex-wrap items-center justify-center sm:justify-end gap-1.5 font-mono text-sm sm:text-base">
               <Link
                 href="/#projects"
-                className="text-text-muted hover:text-accent-cyan transition-colors underline underline-offset-2"
+                className="text-text-muted hover:text-accent-cyan transition-colors underline underline-offset-2 transition-all duration-300 hover:translate-y-[-1px]"
               >
                 ← Main
               </Link>
@@ -111,7 +133,7 @@ export default function ProjectViewer() {
                   <DoubleSlash />
                   <Link
                     href={`/projects/${prevProject.id}`}
-                    className="text-text-muted hover:text-accent-cyan transition-colors"
+                    className="text-text-muted hover:text-accent-cyan transition-colors transition-all duration-300 hover:translate-y-[-1px]"
                   >
                     {String(currentIndex).padStart(2, "0")}
                   </Link>
@@ -129,7 +151,7 @@ export default function ProjectViewer() {
                   <DoubleSlash />
                   <Link
                     href={`/projects/${nextProject.id}`}
-                    className="text-text-muted hover:text-accent-cyan transition-colors"
+                    className="text-text-muted hover:text-accent-cyan transition-colors transition-all duration-300 hover:translate-y-[-1px]"
                   >
                     {String(currentIndex + 2).padStart(2, "0")} →
                   </Link>
@@ -138,7 +160,7 @@ export default function ProjectViewer() {
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </motion.div>
+    </motion.main>
   );
 }
