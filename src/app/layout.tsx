@@ -6,6 +6,7 @@
 
 import type { Metadata } from 'next'
 import { Toaster } from 'react-hot-toast'
+import { usePathname } from "next/navigation";
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import SocialSidebar from '@/components/ui/SocialSidebar'
@@ -37,32 +38,45 @@ export const metadata: Metadata = {
 }
 
 // ── Root Layout ───────────────────────────────────────────────
+function LayoutInner({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isProjectViewer = pathname.startsWith("/projects/");
+
+  return (
+    <>
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: "#14141f",
+            color: "#f0f4ff",
+            border: "1px solid rgba(0,229,255,0.2)",
+            fontFamily: "var(--font-body)",
+          },
+          success: {
+            iconTheme: { primary: "#00e5ff", secondary: "#0a0a0f" },
+          },
+        }}
+      />
+
+      {!isProjectViewer && <SocialSidebar />}
+      {!isProjectViewer && <Navbar />}
+      <main>{children}</main>
+      {!isProjectViewer && <Footer />}
+    </>
+  );
+}
+
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        {/* Toast notifications (used by the contact form) */}
-        <Toaster
-          position="bottom-right"
-          toastOptions={{
-            style: {
-              background: '#14141f',
-              color:      '#f0f4ff',
-              border:     '1px solid rgba(0,229,255,0.2)',
-              fontFamily: 'var(--font-body)',
-            },
-            success: { iconTheme: { primary: '#00e5ff', secondary: '#0a0a0f' } },
-          }}
-        />
-        <SocialSidebar />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <LayoutInner>{children}</LayoutInner>
       </body>
     </html>
-  )
+  );
 }
