@@ -111,11 +111,11 @@ export default function ProjectViewer() {
           initial={{ backgroundColor: "rgba(10,10,15,0.8)" }}
           animate={{ backgroundColor: "rgba(10,10,15,0)" }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="border-t border-white/5 px-4 sm:px-6 py-3 sm:py-4 min-h-[80px] sm:min-h-[90px] flex items-center justify-between"
+          className="px-4 sm:px-6 py-3 sm:py-4 min-h-[80px] sm:min-h-[90px]"
         >
           <div className="flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 py-6 sm:py-7 min-h-[120px] sm:min-h-[132px]">
             {/* left */}
-            <div className="flex flex-col items-center sm:items-start justify-center gap-1.5 text-center sm:text-left">
+            <div className="flex flex-col items-center sm:items-start justify-center gap-2 text-center sm:text-left">
               <p className="font-mono text-base sm:text-lg text-text-primary">
                 <span className="font-bold text-accent-cyan">
                   Exploration {String(currentIndex + 1).padStart(2, "0")}:
@@ -129,7 +129,7 @@ export default function ProjectViewer() {
             </div>
 
             {/* right */}
-            <div className="flex flex-col items-center sm:items-end justify-center gap-1.5 text-center sm:text-right">
+            <div className="flex flex-col items-center sm:items-end justify-center gap-2 text-center sm:text-right">
               <p className="font-mono text-base sm:text-lg text-text-primary">
                 {getProjectDate(project)}
               </p>
