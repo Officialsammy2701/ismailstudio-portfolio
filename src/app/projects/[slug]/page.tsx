@@ -43,9 +43,9 @@ export default function ProjectViewer() {
   }
 
   return (
-    <div className="fixed inset-0 bg-bg-primary z-50 flex flex-col overflow-hidden">
+    <div className="min-h-screen bg-bg-primary z-50 flex flex-col">
       {/* ── Main content area ──────────────────────────────── */}
-      <div className="flex-1 flex items-center justify-center relative overflow-hidden">
+      <div className="flex-1 flex items-center justify-center relative overflow-hidden px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
         {/* Background grid + glow */}
         <div className="absolute inset-0 bg-grid opacity-30" />
         <div
@@ -60,7 +60,8 @@ export default function ProjectViewer() {
         <span
           className="
           absolute font-display font-extrabold
-          text-[20rem] leading-none select-none pointer-events-none
+          text-[7rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem]
+          leading-none select-none pointer-events-none
           text-white/[0.03]
         "
         >
@@ -68,9 +69,9 @@ export default function ProjectViewer() {
         </span>
 
         {/* Content card */}
-        <div className="relative z-10 flex flex-col items-center gap-8 px-8 text-center max-w-2xl">
+        <div className="relative z-10 flex flex-col items-center gap-6 sm:gap-8 px-2 sm:px-6 text-center max-w-xl sm:max-w-2xl lg:max-w-3xl">
           {/* Tags */}
-          <div className="flex items-center gap-2 flex-wrap justify-center">
+          <div className="flex items-center gap-2 flex-wrap justify-center max-w-2xl">
             {project.tags.map((tag) => (
               <span
                 key={tag}
@@ -85,24 +86,24 @@ export default function ProjectViewer() {
           </div>
 
           {/* Title */}
-          <h1 className="font-display font-extrabold text-5xl sm:text-6xl text-gradient leading-tight">
+          <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-gradient leading-[0.95] sm:leading-tight">
             {project.title}
           </h1>
 
           {/* Description */}
-          <p className="font-body text-text-secondary text-lg leading-relaxed">
+          <p className="font-body text-text-secondary text-base sm:text-lg leading-relaxed max-w-2xl">
             {project.longDesc || project.description}
           </p>
 
           {/* Action buttons */}
-          <div className="flex items-center gap-4 flex-wrap justify-center">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center w-full sm:w-auto">
             {project.live && (
               <a
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  flex items-center gap-2
+                  w-full sm:w-auto justify-center flex items-center gap-2
                   px-6 py-3 rounded-md font-mono text-sm font-bold
                   bg-accent-cyan text-bg-primary
                   hover:shadow-glow-button hover:scale-105
@@ -118,7 +119,7 @@ export default function ProjectViewer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  flex items-center gap-2
+                  w-full sm:w-auto justify-center flex items-center gap-2
                   px-6 py-3 rounded-md font-mono text-sm
                   border border-border-accent text-accent-cyan
                   hover:bg-accent-cyan/10 hover:shadow-glow-button
@@ -135,10 +136,11 @@ export default function ProjectViewer() {
       {/* ── Meta bar — bottom, exactly like mattgross.io ───── */}
       <div
         className="
-        relative z-10 flex items-end justify-between
-        px-6 py-5
-        border-t border-border-subtle bg-bg-primary/80 backdrop-blur-sm
-      "
+          relative z-10 flex flex-col sm:flex-row sm:items-end justify-between
+          gap-4 sm:gap-6
+          px-4 sm:px-6 py-4 sm:py-5
+          border-t border-border-subtle bg-bg-primary/80 backdrop-blur-sm
+        "
       >
         {/* Left — project title + stack */}
         <div className="flex flex-col gap-1">
@@ -154,7 +156,7 @@ export default function ProjectViewer() {
         </div>
 
         {/* Right — navigation exactly like Matt Gross */}
-        <div className="flex items-center gap-1.5 font-mono text-sm">
+        <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs sm:text-sm">
           {/* ← Main */}
           <Link
             href="/#projects"
