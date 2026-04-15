@@ -16,6 +16,7 @@ import {
 } from "react-icons/fi";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { FaTiktok, FaCodepen, FaStackOverflow } from "react-icons/fa";
 import { personal, socials } from "@/data/portfolio";
 
@@ -33,20 +34,45 @@ const socialIcons = [
 
 export default function Footer() {
   return (
-    <footer className="bg-transparent">
-      <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col items-center gap-6">
-        <Link href="/" className="flex items-center shrink-0">
-          <Image
-            src="/images/logo-with-background.png"
-            alt={`${personal.brandName} logo`}
-            width={120}
-            height={120}
-            priority
-            className="h-12 w-auto object-contain sm:h-14"
-          />
-        </Link>
+    <motion.footer
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="relative overflow-hidden"
+    >
+      <motion.div
+        initial={{ backgroundColor: "rgba(10,10,15,0.45)" }}
+        whileInView={{ backgroundColor: "rgba(10,10,15,0)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        className="max-w-6xl mx-auto px-6 py-12 flex flex-col items-center gap-6"
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src="/images/logo-with-background.png"
+              alt={`${personal.brandName} logo`}
+              width={120}
+              height={120}
+              priority
+              className="h-12 w-auto object-contain sm:h-14"
+            />
+          </Link>
+        </motion.div>
 
-        <div className="flex items-center justify-center gap-3 sm:gap-4 flex-wrap">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="flex items-center justify-center gap-3 sm:gap-4 flex-wrap"
+        >
           <a
             href={`mailto:${personal.email}`}
             aria-label="Email"
@@ -103,14 +129,26 @@ export default function Footer() {
               </div>
             );
           })}
-        </div>
+        </motion.div>
 
-        <div className="w-16 h-px bg-white/5" />
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0.6 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          className="w-16 h-px bg-white/5 origin-center"
+        />
 
-        <p className="text-text-muted text-sm font-body text-center hover:text-accent-cyan transition-colors duration-200">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+          className="text-text-muted text-sm font-body text-center hover:text-accent-cyan transition-colors duration-200"
+        >
           Designed & Built by {personal.fullName}.
-        </p>
-      </div>
-    </footer>
+        </motion.p>
+      </motion.div>
+    </motion.footer>
   );
 }
