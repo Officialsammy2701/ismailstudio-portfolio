@@ -52,10 +52,10 @@ export default function Navbar() {
           <Image
             src="/icons/logo_master_black_variation.svg"
             alt={`${personal.brandName} logo`}
-            width={120}
-            height={120}
+            width={200}
+            height={80}
             priority
-            className="h-12 w-auto object-contain sm:h-14"
+            className="h-16 w-auto object-contain sm:h-20 md:h-24 transition-all"
           />
         </Link>
 
