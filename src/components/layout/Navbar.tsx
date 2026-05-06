@@ -50,7 +50,7 @@ export default function Navbar() {
         {/* Logo — left */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/images/logo-with-background.png"
+            src="/icons/logo_master_black_variation.svg"
             alt={`${personal.brandName} logo`}
             width={120}
             height={120}
