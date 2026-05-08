@@ -43,8 +43,8 @@ To access Ismail's official brand identity and style resources, use this.
 - Sub-mark Logo: - Strip down graphics for social media.
 
 ### Iconography
-
 - A set of icons (like your social links) that share the same stroke weight as your logo.
+
 
 ## Features
 
