@@ -203,9 +203,6 @@ select {
   border: 0;
 }
 
-.skip-to-content {
-}
-
 /* colors */
 .bg-dark {
   background-color: hsl(var(--clr-primary-dk));
