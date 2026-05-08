@@ -17,6 +17,16 @@ export const metadata: Metadata = {
     template: `%s | ${personal.name}`,
   },
   description: personal.siteDescription,
+
+  icons: {
+    icon: [
+      { url: '/images/favicon-32x32.png', href:'/images/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ]
+    // Optional extra variants later, if you add these files to public/
+    // shortcut: ['/favicon.ico'],
+    // apple: [{ url: '/apple-touch-icon.png', href: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
+
   openGraph: {
     type:        'website',
     locale:      'en_CA',
