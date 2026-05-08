@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/public/images/favicon-32x32.png"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+    <title>Ismail Studio — Design System</title>
+
+    
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!-- ── Header ── -->
+      <header class="ds-header">
+        <div class="ds-header-left">
+          <div class="ds-logo-mark"><img src="/public/icons/logo_master_black_variation.svg" alt="Ismail Studio logo"/></div>
+          <div>
+            <p class="mono-label" style="margin-bottom: 0.1rem;">Ismail Studio</p>
+            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin: 0;">Design System v2.0</p>
+          </div>
+        </div>
+
+        <!-- Theme Toggle (mirrors ThemeToggle.tsx) -->
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark/light mode"
+          title="Toggle theme"
+        >
+          <!-- Sun icon (shown in dark mode) -->
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <!-- Moon icon (shown in light mode) -->
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>
+          </svg>
+        </button>
+      </header>
+
+      <!-- ── 01 Colors ── -->
+      <section id="colors" class="ds-section">
+        <div class="ds-section-header">
+          <h2 class="numbered-title"><span>01</span> Colors</h2>
+          <p style="margin-top: 0.5rem; font-size: 0.875rem;">
+            Palette aligned to <code style="font-family: var(--font-mono); color: var(--color-accent);">tailwind.config.js</code> color tokens.
+            Accent updated to <strong style="color: var(--color-accent);">Burnt Sienna</strong>.
+          </p>
+        </div>
+
+         <div class="swatch-grid">
+          <!-- bg-primary -->
+          <div class="swatch">
+            <div class="swatch-color bg-dark" style="border-bottom: 1px solid var(--color-border);">
+              <span class="mono-label" style="color: hsl(208, 42%, 93%, 0.5); font-size: 0.65rem;">Aa</span>
+            </div>
+            <div class="swatch-info">
+              <p class="swatch-name">Midnight</p>
+              <p class="swatch-meta">
+                <span>bg-primary</span> <br> #0D1117<br>
+                HSL 216°, 28%, 7%
+              </p>
+            </div>
+          </div>
+ 
+          <!-- bg-secondary -->
+          <div class="swatch">
+            <div class="swatch-color bg-secondary" style="border-bottom: 1px solid var(--color-border);">
+              <span class="mono-label" style="color: hsl(208, 42%, 93%, 0.5); font-size: 0.65rem;">Aa</span>
+            </div>
+            <div class="swatch-info">
+              <p class="swatch-name">Deep Slate</p>
+              <p class="swatch-meta">
+                <span>bg-secondary</span> <br> #1C2128<br>
+                HSL 216°, 13%, 15%
+              </p>
+            </div>
+          </div>
+ 
+          <!-- text-primary -->
+          <div class="swatch">
+            <div class="swatch-color bg-light" style="border-bottom: 1px solid var(--color-border);">
+              <span class="mono-label" style="color: hsl(216, 28%, 7%, 0.4); font-size: 0.65rem;">Aa</span>
+            </div>
+            <div class="swatch-info">
+              <p class="swatch-name">Silver Mist</p>
+              <p class="swatch-meta">
+                <span>text-primary</span> <br> #E6EDF3<br>
+                HSL 208°, 42%, 93%
+              </p>
+            </div>
+          </div>
+ 
+          <!-- text-secondary -->
+          <div class="swatch">
+            <div class="swatch-color" style="background: hsl(210, 8%, 71%); border-bottom: 1px solid var(--color-border);">
+              <span class="mono-label" style="color: hsl(216, 28%, 7%, 0.4); font-size: 0.65rem;">Aa</span>
+            </div>
+            <div class="swatch-info">
+              <p class="swatch-name">Stone</p>
+              <p class="swatch-meta">
+                <span>text-secondary</span> <br> #B6BAC3<br>
+                HSL 210°, 8%, 71%
+              </p>
+            </div>
+          </div>
+ 
+          <!-- text-muted -->
+          <div class="swatch">
+            <div class="swatch-color" style="background: hsl(212, 12%, 61%); border-bottom: 1px solid var(--color-border);">
+              <span class="mono-label" style="color: hsl(216, 28%, 7%, 0.4); font-size: 0.65rem;">Aa</span>
+            </div>
+            <div class="swatch-info">
+              <p class="swatch-name">Iron</p>
+              <p class="swatch-meta">
+                <span>text-muted</span> <br> #8B949E<br>
+                HSL 212°, 12%, 61%
+              </p>
+            </div>
+          </div>
+ 
+          <!-- border-subtle -->
+          <div class="swatch">
+            <div class="swatch-color bg-secondary-accent" style="border-bottom: 1px solid var(--color-border);">
+              <span class="mono-label" style="color: hsl(208, 42%, 93%, 0.5); font-size: 0.65rem;">Aa</span>
+            </div>
+            <div class="swatch-info">
+              <p class="swatch-name">Steel Blue</p>
+              <p class="swatch-meta">
+                <span>border-subtle</span> <br> #30363D<br>
+                HSL 212°, 12%, 21%
+              </p>
+            </div>
+          </div>
+ 
+          <!-- accent-sienna -->
+          <div class="swatch">
+            <div class="swatch-color bg-accent" style="border-bottom: 1px solid var(--color-border);">
+              <span class="mono-label" style="color: hsl(216, 28%, 7%, 0.5); font-size: 0.65rem;">Aa</span>
+            </div>
+            <div class="swatch-info">
+              <p class="swatch-name">Burnt Sienna</p>
+              <p class="swatch-meta">
+                <span>accent-sienna</span><br>#E07A3F<br>
+                HSL 18°, 70%, 57%
+              </p>
+            </div>
+          </div>
+ 
+          <!-- accent-sienna-dark -->
+          <div class="swatch">
+            <div class="swatch-color bg-accent-dark" style="border-bottom: 1px solid var(--color-border);">
+              <span class="mono-label" style="color: hsl(216, 28%, 7%, 0.5); font-size: 0.65rem;">Aa</span>
+            </div>
+            <div class="swatch-info">
+              <p class="swatch-name">Ember</p>
+              <p class="swatch-meta">
+                <span>accent-sienna-dark</span> <br> #D4652A<br>
+                HSL 19°, 76%, 45%
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 02 Typography ── -->
+      <section id="typography" class="ds-section">
+        <div class="ds-section-header">
+          <h2 class="numbered-title"><span>02</span> Typography</h2>
+          <p style="margin-top: 0.5rem; font-size: 0.875rem;">
+            Font stack from <code style="font-family: var(--font-mono); color: var(--color-accent);">tailwind.config.js</code>:
+            <strong>Geist</strong> (display/body) · <strong>Syne</strong> (condensed) · <strong>Space Mono</strong> (mono)
+          </p>
+        </div>
+
+        <div class="type-grid">
+          <div class="type-specimen">
+            <p class="type-label">H1 · font-display · fluid clamp(2.5rem → 4rem) · weight 800</p>
+            <p class="h1">Ismail Studio</p>
+          </div>
+
+          <div class="type-specimen">
+            <p class="type-label">H2 · font-display · fluid clamp(2rem → 3.5rem) · weight 700</p>
+            <p class="h2">Design Systems</p>
+          </div>
+
+          <div class="type-specimen">
+            <p class="type-label">H3 · font-display · fluid clamp(1.5rem → 2.5rem) · weight 700</p>
+            <p class="h3">Interaction & Visual</p>
+          </div>
+
+          <div class="type-specimen">
+            <p class="type-label">H4 · font-sans-cond (Syne) · 1.5rem · uppercase · tracking-normal</p>
+            <p class="h4">Component Library</p>
+          </div>
+
+          <div class="type-specimen">
+            <p class="type-label">H5 · font-sans-cond (Syne) · 1.25rem · uppercase · tracking-wide</p>
+            <p class="h5">My Edge is Creativity</p>
+          </div>
+
+          <div class="type-specimen">
+            <p class="type-label">Mono Label · font-mono (Space Mono) · 0.875rem · tracking-normal</p>
+            <p class="mono-label">Design Token Reference</p>
+          </div>
+
+          <div class="type-specimen">
+            <p class="type-label">Numbered Title · font-sans-cond (Syne) · tracking-1</p>
+            <p class="numbered-title"><span>01</span>Section Header</p>
+          </div>
+
+          <!-- Legacy scale -->
+          <div class="type-specimen">
+            <p class="type-label">Legacy scale — fs-900 (Geist · clamp 5rem)</p>
+            <p class="fs-900 ff-serif uppercase">Ismail</p>
+          </div>
+
+          <div class="type-specimen">
+            <p class="type-label">Legacy scale — fs-800 (Geist · 3.5rem)</p>
+            <p class="fs-800 ff-serif uppercase">Studio</p>
+          </div>
+
+          <div class="type-specimen">
+            <p class="type-label">Body text · font-body · fs-400 · line-height 1.6</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit.
+              Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id,
+              mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor
+              libero sodales leo, eget blandit nunc tortor eu nibh.
+            </p>
+          </div>
+
+          <!-- Letter spacing -->
+          <div class="type-specimen">
+            <p class="type-label">Letter spacing scale (from Tailwind config)</p>
+            <div style="display: grid; gap: 0.75rem; margin-top: 0.5rem;">
+              <p class="ff-sans-cond uppercase letter-spacing-tight text-muted" style="font-size: 0.875rem;">tracking-tight · 0.05em</p>
+              <p class="ff-sans-cond uppercase letter-spacing-normal text-muted" style="font-size: 0.875rem;">tracking-normal · 0.1em</p>
+              <p class="ff-sans-cond uppercase letter-spacing-wide text-muted" style="font-size: 0.875rem;">tracking-wide · 0.15em</p>
+              <p class="ff-sans-cond uppercase letter-spacing-1 text-muted" style="font-size: 0.875rem;">tracking-1 · 4.75px</p>
+              <p class="ff-sans-cond uppercase letter-spacing-2 text-muted" style="font-size: 0.875rem;">tracking-2 · 2.7px</p>
+              <p class="ff-sans-cond uppercase letter-spacing-3 text-muted" style="font-size: 0.875rem;">tracking-3 · 2.35px</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 03 Interactive Elements ── -->
+      <section id="interactive-elements" class="ds-section">
+        <div class="ds-section-header">
+          <h2 class="numbered-title"><span>03</span> Interactive Elements</h2>
+        </div>
+
+        <!-- Navigation -->
+        <p class="mono-label" style="margin-bottom: 1rem;">Primary Navigation</p>
+        <div class="nav-demo">
+          <nav>
+            <ul class="primary-navigation underline-indicators flex">
+              <li class="active">
+                <a class="uppercase letter-spacing-2" href="#">
+                  <span>01</span>Active
+                </a>
+              </li>
+              <li>
+                <a class="uppercase letter-spacing-2" href="#">
+                  <span>02</span>Hovered
+                </a>
+              </li>
+              <li>
+                <a class="uppercase letter-spacing-2" href="#">
+                  <span>03</span>Idle
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Buttons -->
+        <p class="mono-label" style="margin: 2rem 0 1rem;">Buttons · accent-sienna</p>
+        <div class="btn-row">
+          <a href="#" class="btn btn-primary uppercase letter-spacing-3">Explore</a>
+          <a href="#" class="btn btn-secondary uppercase letter-spacing-3">Contact Us</a>
+          <a href="#" class="btn btn-ghost uppercase letter-spacing-3">Learn More</a>
+          <button class="btn btn-primary uppercase letter-spacing-3" disabled>Disabled</button>
+        </div>
+
+        <!-- Theme Toggle demo -->
+        <p class="mono-label" style="margin: 2rem 0 1rem;">Theme Toggle · ThemeToggle.tsx</p>
+        <div class="toggle-demo">
+          <button
+            class="theme-toggle"
+            id="themeToggle2"
+            aria-label="Toggle dark/light mode"
+          >
+            <svg id="iconSun2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+            <svg id="iconMoon2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>
+            </svg>
+          </button>
+          <p style="font-size: 0.875rem; margin: 0;">
+            Toggles <code style="font-family: var(--font-mono); color: var(--color-accent);">.light</code> on
+            <code style="font-family: var(--font-mono); color: var(--color-accent);">&lt;html&gt;</code> ·
+            persisted to <code style="font-family: var(--font-mono); color: var(--color-accent);">localStorage</code>
+          </p>
+        </div>
+
+        <!-- Tab / num indicators -->
+        <p class="mono-label" style="margin: 2rem 0 1rem;">Tab / Num Indicators</p>
+        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 1.5rem; background-color: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 0.5rem;">
+          <span class="text-accent">← </span>
+          <a href="#" aria-selected="true" class="main uppercase ff-sans-cond letter-spacing-2" style="color: var(--color-text-primary); text-decoration: none;">Main</a>
+          <div style="display: inline-flex; font-family: var(--font-sans-cond); color: var(--color-accent);">
+            <span style="display: inline-block; transform: translateX(-0.25em);">/</span>
+            <span style="display: inline-block; transform: translateY(0.25em);">/</span>
+          </div>
+          <span class="text-accent">← </span>
+          <a class="num-indicators uppercase letter-spacing-2" href="#" style="color: var(--color-text-primary); text-decoration: none;"><span>01</span></a>
+          <span class="text-accent">/</span>
+          <a class="num-indicators uppercase letter-spacing-2" href="#" style="color: var(--color-text-primary); text-decoration: none;"><span><b>02</b></span></a>
+          <span class="text-accent">/</span>
+          <a class="num-indicators uppercase letter-spacing-2" href="#" style="color: var(--color-text-primary); text-decoration: none;"><span>03</span></a>
+          <span class="text-accent"> →</span>
+        </div>
+
+        <!-- Link underline -->
+        <p class="mono-label" style="margin: 2rem 0 1rem;">Link Underline</p>
+        <div style="padding: 1.5rem; background-color: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 0.5rem;">
+          <a href="#" class="link-underline">Hover to reveal underline</a>
+        </div>
+      </section>
+
+      <!-- ── 04 Components ── -->
+      <section id="components" class="ds-section">
+        <div class="ds-section-header">
+          <h2 class="numbered-title"><span>04</span> Components</h2>
+        </div>
+
+        <p class="mono-label" style="margin-bottom: 1rem;">Cards · shadow-glow on hover</p>
+        <div class="cards-grid">
+          <div class="card">
+            <p class="card-demo-label">Project</p>
+            <h3 class="h4" style="margin-bottom: 0.5rem;">Visual Identity</h3>
+            <p style="font-size: 0.875rem;">Brand systems, logo design, and visual language across all touchpoints.</p>
+          </div>
+          <div class="card">
+            <p class="card-demo-label">Project</p>
+            <h3 class="h4" style="margin-bottom: 0.5rem;">Motion Design</h3>
+            <p style="font-size: 0.875rem;">Animation, transitions, and kinetic storytelling for digital products.</p>
+          </div>
+          <div class="card">
+            <p class="card-demo-label">Project</p>
+            <h3 class="h4" style="margin-bottom: 0.5rem;">Sound Design</h3>
+            <p style="font-size: 0.875rem;">Audio branding, UI sound effects, and immersive sonic experiences.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 05 Spacing ── -->
+      <section id="spacing" class="ds-section">
+        <div class="ds-section-header">
+          <h2 class="numbered-title"><span>05</span> Spacing</h2>
+        </div>
+
+        <div class="spacing-grid">
+          <div class="space-item">
+            <div class="space-block" style="height: var(--space-xs);"></div>
+            <p class="space-label">xs<br>0.5rem</p>
+          </div>
+          <div class="space-item">
+            <div class="space-block" style="height: var(--space-sm);"></div>
+            <p class="space-label">sm<br>1rem</p>
+          </div>
+          <div class="space-item">
+            <div class="space-block" style="height: var(--space-md);"></div>
+            <p class="space-label">md<br>1.5rem</p>
+          </div>
+          <div class="space-item">
+            <div class="space-block" style="height: var(--space-lg);"></div>
+            <p class="space-label">lg<br>2rem</p>
+          </div>
+          <div class="space-item">
+            <div class="space-block" style="height: var(--space-xl);"></div>
+            <p class="space-label">xl<br>3rem</p>
+          </div>
+          <div class="space-item">
+            <div class="space-block" style="height: var(--space-2xl);"></div>
+            <p class="space-label">2xl<br>4rem</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 06 Animation ── -->
+      <section id="animation" class="ds-section">
+        <div class="ds-section-header">
+          <h2 class="numbered-title"><span>06</span> Animation</h2>
+        </div>
+
+        <div class="animation-demo">
+          <div class="anim-item">
+            <div class="anim-box animate-fade-in" style="animation-iteration-count: infinite; animation-duration: 2s;"></div>
+            <p class="anim-label">fade-in</p>
+          </div>
+          <div class="anim-item">
+            <div class="anim-box animate-slide-up" style="animation-iteration-count: infinite; animation-duration: 2s;"></div>
+            <p class="anim-label">slide-up</p>
+          </div>
+          <div class="anim-item">
+            <div class="anim-box animate-float"></div>
+            <p class="anim-label">float</p>
+          </div>
+          <div class="anim-item">
+            <div class="anim-box" style="display: flex; align-items: center; justify-content: center;">
+              <span class="animate-blink" style="display: block; width: 3px; height: 1.5rem; background: hsl(216, 28%, 7%); border-radius: 2px;"></span>
+            </div>
+            <p class="anim-label">blink</p>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /container -->
+
+    <script src="index.js"></script>
+  </body>
+</html>
