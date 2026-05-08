@@ -16,24 +16,22 @@ To access Ismail's official brand identity and style resources, use this.
 
 - **The Logo**: Geist Sans, Black (with Inter fallback)
 - **Headings**: Geist Sans, Bold (with Inter fallback)
+- **Sub-Headings**: Syne, Regular (with Inter fallback)
 - **Body Text**: Geist, Regular (with Inter fallback)
-- **Code/Technical**: Geist Mono, Regular (with Georgia fallback)
+- **Code/Technical**: Geist Mono, Regular (with Space Mono fallback)
 - **Note**: Fonts should be pre-installed in your environment for best results
 
 ### Colors
 
 **Main Colors:**
 
-- Dark: `#141413` - Primary text and dark backgrounds
-- Light: `#faf9f5` - Light backgrounds and text on dark
-- Mid Gray: `#b0aea5` - Secondary elements
-- Light Gray: `#e8e6dc` - Subtle backgrounds
+- Midnight: `#0D1117` - Dark Primary text and dark backgrounds
+- Silver Mist: `#E6EDF3` - Light Primary text and light backgrounds
 
 **Accent Colors:**
 
-- Orange: `#d97757` - Primary accent
-- Blue: `#6a9bcc` - Secondary accent
-- Green: `#788c5d` - Tertiary accent
+- Lucid Violet: `#BFADFF` - Primary accent
+- Steel Blue: `#30363D` - Secondary accent
 
 ### Logo
 

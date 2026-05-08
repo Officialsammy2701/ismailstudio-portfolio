@@ -1,56 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ismail Studio Design system</title>
 
     <!-- Goggle fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link rel="stylesheet" href="/src/styles/globals.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="design_system.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1 class="title">Ismail Studio Design system</h1>
-        
-        <section id="colors" style="margin: 4rem 0">
-            <h2 class="numbered-title"><span>01</span> colors</h2>
+        <div class="flex center-img">
+<img src="/public/icons/logo_master_silvermist_variant.svg" alt="Ismail Studio logo" width="100" height="100"/>
+        </div>        
+      <h1>Design system</h1>
 
-            <div class="flex">
-                <div style="flex-grow: 1">
-                    <div class="bg-primary" style="padding: 3rem 1rem 1rem; border: 1px solid white">
-                        Primary
-                        #FF6464
-                    </div>
-                    <p><span class="text-accent">RGB</span></p>
-                    <p><span class="text-accent">HSL</span></p>
-                </div>
-                <div style="flex-grow: 1">
-                    <div class="bg-primary" style="padding: 3rem 1rem 1rem; border: 1px solid white">
-                        Primary
-                        #FF6464
-                    </div>
-                    <p><span class="text-accent">RGB</span></p>
-                    <p><span class="text-accent">HSL</span></p>
-                </div>
-                <div style="flex-grow: 1">
-                    <div class="bg-primary" style="padding: 3rem 1rem 1rem; border: 1px solid white">
-                        Primary
-                        #FF6464
-                    </div>
-                    <p><span class="text-accent">RGB</span></p>
-                    <p><span class="text-accent">HSL</span></p>
-                </div>
+      <section id="colors" style="margin: 4rem 0">
+        <h2 class="numbered-title"><span>01</span> colors</h2>
+
+        <div class="flex">
+          <div>
+            <div
+              class="bg-dark text-white ff-serif"
+              style="padding: 3rem 1rem 1rem; border: 1px solid white"
+            >
+              Midnight <br />
+              Dark Primary Text / Dark Surfaces <br />
+              #0D1117
             </div>
-        </section>
+            <p><span class="text-accent">RGB</span> 13, 17, 23</p>
+            <p><span class="text-accent">HSL</span> 216, 28%, 7%</p>
+          </div>
+          <div>
+            <div
+              class="bg-light text-dark ff-serif"
+              style="padding: 3rem 1rem 1rem; border: 1px solid white"
+            >
+              Silver Mist <br />
+              Light Primary Text / Light Surfaces <br />
+              #E6EDF3
+            </div>
+            <p><span class="text-accent">RGB</span> 230, 237, 243</p>
+            <p><span class="text-accent">HSL</span> 208, 42%, 93%</p>
+          </div>
+          <div>
+            <div
+              class="bg-primary-accent text-dark ff-serif"
+              style="padding: 3rem 1rem 1rem; border: 1px solid white"
+            >
+              Lucid Violet <br />
+              Primary Accent <br />
+              #BFADFF
+            </div>
+            <p><span class="text-accent">RGB</span> 191, 173, 255</p>
+            <p><span class="text-accent">HSL</span> 253, 100%, 84%</p>
+          </div>
+          <div>
+            <div
+              class="bg-secondary-accent text-white ff-serif"
+              style="padding: 3rem 1rem 1rem; border: 1px solid white"
+            >
+              Steel Blue <br />
+              Secondary Accent <br />
+              #30363D
+            </div>
+            <p><span class="text-accent">RGB</span> 48, 54, 61</p>
+            <p><span class="text-accent">HSL</span> 212, 12%, 21%</p>
+          </div>
+      </section>
 
-        <section id="typography" style="margin: 4rem 0;">
+      <section id="typography" style="margin: 4rem 0">
+        <h2 class="numbered-title"><span>02 </span>Typography</h2>
+        <div class="flex">
+          <div class="flow" style="flex-basis: 100%; --flow-space: 4rem">
+            <div>
+              <p class="text-accent">Heading 1 - Geist Regular - 150px</p>
+              <p class="fs-900 ff-serif uppercase">Ismail</p>
+            </div>
+            <div>
+              <p class="text-accent">Heading 2 - Geist Regular - 100px</p>
+              <p class="fs-800 ff-serif uppercase">Studio</p>
+            </div>
+            <div>
+              <p class="text-accent">Heading 3 - Geist Regular - 56px</p>
+              <p class="fs-700 ff-serif uppercase">Ismail & Studio</p>
+            </div>
+            <div>
+              <p class="text-accent">Heading 4 - Geist Regular - 32px</p>
+              <p class="fs-600 ff-serif uppercase">
+                Interaction, Visuals, & Sound
+              </p>
+            </div>
+            <div>
+              <p class="text-accent">
+                Heading 5 - Syne Regular - 28px - 4.75 Character Space
+              </p>
+              <p
+                class="text-accent fs-500 ff-sans-cond uppercase letter-spacing-1"
+              >
+                My Edge is Creativity
+              </p>
+            </div>
+          </div>
 
-        </section>
+          <div class="flow" style="flex-basis: 100%; --flow-space: 4rem">
+            <div>
+              <p class="text-accent">Subheading 1 - Geist Regular - 28px</p>
+              <p class="fs-500 ff-serif uppercase">384,400 km</p>
+            </div>
+            <div>
+              <p class="text-accent">
+                Subheading 2 - Syne Regular - 14px - 2.35 Character Space
+              </p>
+              <p class="fs-200 uppercase ff-sans-cond letter-spacing-3">
+                Avg. Distance
+              </p>
+            </div>
+            <div>
+              <p class="text-accent">
+                Nav Text - Syne Regular - 16px - 2.7 Character Space
+              </p>
+              <p class="fs-300 uppercase ff-sans-cond letter-spacing-2">
+                Discipline
+              </p>
+            </div>
+            <div>
+              <p class="text-accent">Body Text</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi
+                neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium,
+                ligula sollicitudin laoreet viverra, tortor libero sodales leo,
+                eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo.
+                Suspendisse potenti.Lorem ipsum dolor sit amet, consectetuer
+                adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh
+                nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel,
+                nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor
+                libero sodales leo, eget blandit nunc tortor eu nibh. Nullam
+                mollis. Ut justo. Suspendisse potenti.Lorem ipsum dolor sit
+                amet, consectetuer adipiscing elit. Phasellus hendrerit.
+                Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel,
+                dapibus id, mattis vel, nisi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    
-</body>
+  </body>
 </html>
